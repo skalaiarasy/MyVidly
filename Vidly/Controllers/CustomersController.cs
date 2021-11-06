@@ -24,35 +24,15 @@ namespace Vidly.Controllers
         public ActionResult Customers()
         {
 
-            //List<Customer> customers = new List<Customer>
-            //{
-            //    new Customer { Id = 1,Name = "Tharunika"},
-            //    new Customer { Id =2, Name = "Madhunika"}
-
-            //};
-
-
-            //RandomCustomerViewModel randomCustomerViewModel = new RandomCustomerViewModel()
-            //{
-
-            //    Customers = customers
-            //};
-            var customers = _context.Customers.ToList();
-            //return View(randomCustomerViewModel);
+            var customers = _context.Customers.ToList();            
             return View(customers);
 
         }
-        //[Route("Customers/CustomerDetails/{id}")]
+        
         public ActionResult CustomerDetails(int? id)
         {
-            //List<Customer> customers = new List<Customer>
-            //{
-            //    new Customer { Id = 1,Name = "Tharunika"},
-            //    new Customer { Id = 2, Name = "Madhunika"}
-
-            //};
-            var customers = _context.Customers.SingleOrDefault(c => c.Id == id);
-            //var temp = customers.Find(customer => customer.Id == id);
+            
+            var customers = _context.Customers.SingleOrDefault(c => c.Id == id);            
             if (customers == null)
             {
                 
@@ -61,7 +41,7 @@ namespace Vidly.Controllers
             }
             else
             {
-                //ViewBag.Name = temp.Name;
+                
                 return View(customers);
             }
 
