@@ -15,9 +15,7 @@
                         Name = c.String(),
                     })
                 .PrimaryKey(t => t.Id);
-            Sql("INSERT INTO Customer(Id,Name) Values(1,'Tharunika')");
-            Sql("INSERT INTO Customer(Id,Name) Values(2,'Madhunika')");
-
+            
             CreateTable(
                 "dbo.Movies",
                 c => new

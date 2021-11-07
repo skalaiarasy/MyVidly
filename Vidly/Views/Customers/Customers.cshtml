@@ -1,24 +1,22 @@
-﻿@model Vidly.ViewModels.RandomCustomerViewModel
+﻿@model IEnumerable<Vidly.Models.Customer>
 @{
     ViewBag.Title = "Customers";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@if (Model.Customers.Count == 0)
-    {
-        <p>No customers available</p>
-    }
-    else
-    {
-<table>
-    @foreach (var customer in Model.Customers)
-    {
-    <tr>
-    <td>
-        @Html.ActionLink(customer.Name, "CustomerDetails", "Customers", new { id=customer.Id },null);
-        </td>
-    </tr>
-    }
-</table>
-}
+
+ 
+    <table>
+        <h1>Customers</h1>
+        @foreach (var customer in Model)
+        {
+            <tr>
+                <td>
+                    
+                    @Html.ActionLink(customer.Name, "CustomerDetails", "Customers", new { id = customer.Id }, null);
+                </td>
+            </tr>
+        }
+    </table>
+
 
